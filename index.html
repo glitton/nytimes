@@ -1,0 +1,58 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>NY Times Search App</title>
+        <!-- Favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <!-- Fonts -->
+    <script src="https://use.fontawesome.com/b4869d6fbe.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- My CSS -->
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body ng-app="myApp"><!-- ng-app says that we are using angular  -->
+  <div ng-controller="firstCtrl"> <!-- using this angular controller for this section only -->
+    
+    <!-- Search Box -->
+    <div class="container">
+      <div class="row">
+            <div class="col-lg-12">
+                <div id="imaginary_container"> 
+                    <div class="input-group stylish-input-group">
+                        <input type="text" class="form-control" placeholder="Search" ng-model="search">
+                        <span class="input-group-addon">
+                            <!-- When there is no user input, button is disabled, ng-disabled -->
+                            <button ng-disabled="!search.length" class="btn btn-primary"
+                            type="submit" ng-click="mySearch(search)">
+                                Search the New York Times
+                            </button>  
+                        </span>
+                    </div>
+                </div>
+            </div>
+      </div>
+    </div>
+
+    <div>  
+      <ul><!-- ng-repeat allows looping through an array -->
+        <li ng-repeat="search in searchArr"><a href="{{ search.web_url}}" target="_blank">{{ search.headline.main }}</a></li>
+      </ul>  
+  </div>
+
+
+    <!-- Angular CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <!-- jQuery  -->
+    <script
+    src="http://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <!-- Bootstrap js -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- My js -->
+    <script src="app.js"></script>
+</body>
+</html>
